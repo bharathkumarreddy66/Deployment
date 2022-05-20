@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Home</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Home.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.10.5, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Home">
+    <meta property="og:type" content="website">
+  </head>
+
+<body>
+ <div class="login">
+	<h1>Wine Price Prediction</h1>
+
+      <table width = "100%" border = "10">
+         
+         <tr>
+            <td colspan = "2" bgcolor = "#b5dcb3">
+				<form action="{{ url_for('predict')}}"method="post">
+					<input type="text" name="year" placeholder="year" required="required" />
+					<input type="text" name="rating" placeholder="rating(0-5)" required="required" />
+					<input type="text" name="num_reviews" placeholder="num_reviews" required="required" />
+					<input type="text" name="body" placeholder="body(3-5)" required="required" />
+					<input type="text" name="acidity" placeholder="acidity(1-3)" required="required" />
+					<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+					
+						<tr valign = "top">
+						<td  = "#aaa" width = "180">
+							Select Wine type <br><br>
+							
+							<input type="checkbox" id="type_Albarino" name="type_Albarino" value="1">
+							<input type="hidden" id="type_Albarino" name="type_Albarino" value="0">
+							<label for="type_Albarino">Albarino </label><br>
+							<input type="checkbox" id="type_Cabernet Sauvignon" name="type_Cabernet Sauvignon" value="1">
+							<input type="hidden" id="type_Cabernet Sauvignon" name="type_Cabernet Sauvignon" value="0">
+							<label for="type_Cabernet Sauvignon">Cabernet Sauvignon</label><br>
+							<input type="checkbox" id="type_Cava" name="type_Cava" value="1">
+							<input type="hidden" id="type_Cava" name="type_Cava" value="0">
+							<label for="type_Cava">Cava </label><br>
+							<input type="checkbox" id="type_Chardonnay" name="type_Chardonnay" value="1">
+							<input type="hidden" id="type_Chardonnay" name="type_Chardonnay" value="0">
+							<label for="type_Chardonnay">Chardonnay </label><br>
+							<input type="checkbox" id="type_Grenache" name="type_Grenache" value="1">
+							<input type="hidden" id="type_Grenache" name="type_Grenache" value="0">
+							<label for="type_Grenache">Grenache </label><br>
+							<input type="checkbox" id="type_Mencia" name="type_Mencia" value="1">
+							<input type="hidden" id="type_Mencia" name="type_Mencia" value="0">
+							<label for="type_Mencia">Mencia </label><br>
+							<input type="checkbox" id="type_Monastrell " name="type_Monastrell " value="1">
+							<input type="hidden" id="type_Monastrell" name="type_Monastrell" value="0">
+							<label for="type_Monastrell">Monastrell </label><br>
+							<input type="checkbox" id="type_Montsant Red" name="type_Montsant Red" value="1">
+							<input type="hidden" id="type_Montsant Red" name="type_Montsant Red" value="0">
+							<label for="type_Montsant Red">Montsant Red</label><br>
+							<input type="checkbox" id="type_Pedro Ximenez" name="type_Pedro Ximenez" value="1">
+							<input type="hidden" id="type_Pedro Ximenez" name="type_Pedro Ximenez" value="0">
+							<label for="type_Pedro Ximenez">Pedro Ximenez </label><br>
+							<input type="checkbox" id="type_Priorat Red" name="type_Priorat Red" value="1">
+							<input type="hidden" id="type_Priorat Red" name="type_Priorat Red" value="0">
+							<label for="type_Priorat Red">Priorat Red </label><br>
+							<input type="checkbox" id="type_Red" name="type_Red" value="1">
+							<input type="hidden" id="type_Red" name="type_Red" value="0">
+							<label for="type_Red">Red </label><br>
+							<input type="checkbox" id="type_Ribera Del Duero Red" name="type_Ribera Del Duero Red" value="1">
+							<input type="hidden" id="type_Ribera Del Duero Red" name="type_Ribera Del Duero Red" value="0">
+							<label for="type_Ribera Del Duero Red">Ribera Del Duero Red </label><br>
+							<input type="checkbox" id="type_Rioja Red" name="type_Rioja Red" value="1">
+							<input type="hidden" id="type_Rioja Red" name="type_Rioja Red" value="0">
+							<label for="type_Rioja Red">Rioja Red </label><br>
+							<input type="checkbox" id="type_Rioja White " name="type_Rioja White " value="1">
+							<input type="hidden" id="type_Rioja White" name="type_Rioja White" value="0">
+							<label for="type_Rioja White">Rioja White </label><br>
+							<input type="checkbox" id="type_Sauvignon Blanc" name="type_Sauvignon Blanc" value="1">
+							<input type="hidden" id="type_Sauvignon Blanc" name="type_Sauvignon Blanc" value="0">
+							<label for="type_Sauvignon Blanc">Sauvignon Blanc </label><br>
+							<input type="checkbox" id="type_Sherry" name="type_Sherry" value="1">
+							<input type="hidden" id="type_Sherry" name="type_Sherry" value="0">
+							<label for="type_Sherry">Sherry </label><br>
+							<input type="checkbox" id="type_Sparkling" name="type_Sparkling" value="1">
+							<input type="hidden" id="type_Sparkling" name="type_Sparkling" value="0">
+							<label for="type_Sparkling">Sparkling </label><br>
+							<input type="checkbox" id="type_Syrah" name="type_Syrah" value="1">
+							<input type="hidden" id="type_Syrah" name="type_Syrah" value="0">
+							<label for="type_Syrah">Syrah </label><br>
+							<input type="checkbox" id="type_Tempranillo" name="type_Tempranillo" value="1">
+						   <input type="hidden" id="type_Tempranillo" name="type_Tempranillo" value="0">
+							<label for="type_Tempranillo">Tempranillo </label><br>
+							
+							
+							
+							
+							<input type="checkbox" id="type_Toro Red" name="type_Toro Red" value="1">
+							<input type="hidden" id="type_Toro Red" name="type_Toro Red" value="0">
+						   <label for="type_Toro Red">Toro Red</label><br>
+						   
+							
+		
+							
+							
+							
+							
+							
+							
+							
+							<input type="checkbox" id="type_Verdejo" name="type_Verdejo" value="1">
+							<input type="hidden" id="type_Verdejo" name="type_Verdejo" value="0">
+							<label for="type_Verdejo">Verdejo</label><br>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+					<td bgcolor = "#eee" width = "100" height = "200">
+						   Predicted Wine Price<br><br>
+
+						   {{ prediction_text }}
+						   <br>
+						   
+						</td>
+					
+					 </tr>
+					 <tr>
+						<td colspan = "2" bgcolor = "#b5dcb3">
+						   <center>
+							  
+						   </center>
+						</td>
+					 </tr>
+					 
+				  </table>
+					
+				</form>
+            </td>
+         </tr>
+
+
+    </form>
+
+   <br>
+   <br>
+   
+
+ </div>
+
+
+</body>
+</html>
