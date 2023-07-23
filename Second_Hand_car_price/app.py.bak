@@ -1,0 +1,65 @@
+from flask import Flask,request, jsonify, render_template
+import numpy as np
+import pickle
+app = Flask(__name__)
+model=pickle.load(open('model.pkl','rb'))
+@app.route('/')
+def home():
+    return render_template('index.html')
+@app.route('/predict',methods =['POST'])
+def predict():
+    year =  request.form(['year'])
+    km_driven = request.form(['km_driven'])
+    fuel =  request.form(['fuel'])
+    brand = request.form(['brand'])
+    transmission = request.form(['transmission'])
+    owner =  request.form(['owner'])
+    seller_type = request.form(['seller_type'])
+    
+    
+
+    lis = [petrol ,diesel,cng , electric]
+
+    lis = {'petrol':0 ,'diesel':0,'cng':0 , 'electric':0}
+
+    for i in lis:
+        if i== fuel :
+            lis[i]= 1
+        else :
+            lis[i]=0
+
+
+
+    
+
+    bran = {'brand_Audi':0, 'brand_BMW':0, 'brand_Chevrolet':0, 'brand_Daewoo':0,
+       'brand_Datsun':0, 'brand_Fiat':0, 'brand_Force':0, 'brand_Ford':0,
+       'brand_Honda':0, 'brand_Hyundai':0, 'brand_Isuzu':0, 'brand_Jaguar':0,
+       'brand_Jeep':0, 'brand_Kia':0, 'brand_Land':0, 'brand_MG':0, 'brand_Mahindra':0,
+       'brand_Maruti':0, 'brand_Mercedes-Benz':0, 'brand_Mitsubishi':0,
+       'brand_Nissan':0, 'brand_OpelCorsa':0, 'brand_Renault':0, 'brand_Skoda':0,
+       'brand_Tata':0, 'brand_Toyota':0, 'brand_Volkswagen':0, 'brand_Volvo':0}
+
+    for i in bran:
+        if i== fuel :
+            bran[i]= 1
+        else :
+            bran[i]=0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return render_template('index.html':0, prediction_text='The predicted value is {}'.format(round(output,2)))
+if __name__ == "__main__":
+    app.run(host='0.0.0.0':0,port=8080)
